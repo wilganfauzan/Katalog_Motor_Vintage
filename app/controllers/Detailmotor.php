@@ -97,9 +97,10 @@ class Detailmotor extends \BaseController {
 		return Response::json(array('status'=>$status,
 									'status_code'=>$status_code,
 									'message'=>array('prod'=>$prod,
-													 'devel'=>$devel),
+											 'devel'=>$devel),
 									'data'=>$datass
 									));
 	}
 
 }
+
