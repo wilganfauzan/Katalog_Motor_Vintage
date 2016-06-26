@@ -83,7 +83,7 @@ class Detailmotor extends \BaseController {
 	}
 
 
-public function get_all()
+	public function get_all()
 	{
 		$data = Detail::All();
 
