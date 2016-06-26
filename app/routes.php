@@ -16,12 +16,7 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('/detail', array ('uses'=>'Detailmotor@get_all'));
-
-Route::get('view/all', array('uses'=>'Detailmotor@get_all'));
-Route::get('view/detail{id}', array('uses'=>'Detailmotor@get_all'));
-Route::get('view/kategori/all', array('uses'=>'KategoriMotor@get_all'));
-Route::get('view/kategori/{id}', array('uses'=>'KategoriMotor@get_all'));
-Route::get('view/katalog/all', array('uses'=>'KatalogMotor@get_all'));
-Route::get('view/katalog/{id}', array('uses'=>'KatalogMotor@get_all'));
 Route::get('/menu', array('uses'=>'MenuUtama@get_all'));
+Route::get('/view/detail', array ('uses'=>'Detailmotor@get_all'));
+Route::get('/view/kategori', array('uses'=>'KategoriMotor@get_all'));
+Route::get('/view/katalog', array('uses'=>'KatalogMotor@get_all'));
