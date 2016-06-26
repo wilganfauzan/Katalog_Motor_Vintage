@@ -82,12 +82,13 @@ class KategoriMotor extends \BaseController {
 		//
 	}
 
-	public function get_all($id)
+	public function get_all()
 	{
 
-		$data = Kategori::where('id_kategori', $id)->with('Detail')->get();
-		
+		$data = Kategori::All();
+
 		echo json_encode($data);die();
+
 
 		$status = true;
 		$status_code = 200;
@@ -97,7 +98,7 @@ class KategoriMotor extends \BaseController {
 		return Response::json(array('status'=>$status,
 									'status_code'=>$status_code,
 									'message'=>array('prod'=>$prod,
-													 'devel'=>$devel),
+											 'devel'=>$devel),
 									'data'=>$datass
 									));
 	}
