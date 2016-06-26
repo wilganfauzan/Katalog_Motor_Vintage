@@ -82,10 +82,10 @@ class KatalogMotor extends \BaseController {
 		//
 	}
 
-	function get_all($id)
+	function get_all()
 	{
 
-		$data = Katalog::where('id_katalog', $id)->with('Kategori')->get();
+		$data = Katalog::All();
 
 		echo json_encode($data);die();
 
@@ -98,7 +98,7 @@ class KatalogMotor extends \BaseController {
 		return Response::json(array('status'=>$status,
 									'status_code'=>$status_code,
 									'message'=>array('prod'=>$prod,
-													 'devel'=>$devel),
+											 'devel'=>$devel),
 									'data'=>$datass
 									));
 	}
