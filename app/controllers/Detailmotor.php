@@ -83,15 +83,11 @@ class Detailmotor extends \BaseController {
 	}
 
 
-	public function get_all()
+public function get_all()
 	{
 		$data = Detail::All();
-		foreach ($data as $datas) {
-			$datass[] = [
-				'nomer'=> $datas->id,
-				'nama'=> $datas->gambar
-			];
-		}
+
+		echo json_encode($data);die();
 
 		$status = true;
 		$status_code = 200;
