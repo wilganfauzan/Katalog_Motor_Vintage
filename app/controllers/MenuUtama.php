@@ -84,11 +84,11 @@ class MenuUtama extends \BaseController {
 
 	public function get_all()
 	{
-		$data = Detail::All();
+		$data = Menu::All();
 		foreach ($data as $datas) {
 			$datass [] = [
 				'image_Slider'=> $datas->slider,
-				'id_kategori'=> $datas->id_kategori,
+				'id_katalog'=> $datas->id_katalog,
 				'news'=> $datas->news,
 				'banner'=> $datas->banner
 			];
@@ -102,7 +102,7 @@ class MenuUtama extends \BaseController {
 		return Response::json(array('status'=>$status,
 									'status_code'=>$status_code,
 									'message'=>array('prod'=>$prod,
-													 'devel'=>$devel),
+											 'devel'=>$devel),
 									'data'=>$datass
 									));
 	}
