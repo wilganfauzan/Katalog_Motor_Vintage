@@ -5,76 +5,149 @@ HOST: http://polls.apiblueprint.org/
 
 Polls is a simple API allowing consumers to view polls and vote in them.
 
-## Questions Collection [/questions]
+## Menu [/menu]
 
-### List All Questions [GET]
+### Menu [GET]
 
-+ Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
-+ Request (application/json)
+ * Response 200 (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+          {
+              "status": true,
+              "status_code": 200,
+              "message": {
+                "prod": "Data ditemukan",
+                "devel": "Data ditemukan"
+              },
+              "data": [
+                {
+                  "image_Slider": "www.motor.com/slider/image1.jpg",
+                  "id_katalog": 1,
+                  "news": "Berita terhangat tanggal 9 juni 2016",
+                  "banner": "voucher makanan gratis"
+                },
+                {
+                  "image_Slider": "www.motor.com/slider/image2.com",
+                  "id_katalog": 2,
+                  "news": "Berita terhangat tahun 2015",
+                  "banner": "voucher minum sepuasnya"
+                },
+                {
+                  "image_Slider": "www.motor.com/slider/image3.jpg",
+                  "id_katalog": 3,
+                  "news": "Penemuan UFO menjadi bahan perbincangan ibu - ibu",
+                  "banner": "coupon belanja Rp 10.000"
+                },
+                {
+                  "image_Slider": "www.motor.com/slider/image4.com",
+                  "id_katalog": 4,
+                  "news": "Terjadi kecelakaan antara pesawat dan motor",
+                  "banner": "gratis bensin ikuti seminar"
+                }
+              ]
+            }
         }
 
-+ Response 201 (application/json)
+## Katalog [/katalog]
 
-    + Headers
+### Katalog [GET]
 
-            Location: /questions/2
+ * Response 200 (application/json)
+    
+        {
+         [
+          {
+            "id_katalog": 1,
+            "id_kategori": 1,
+            "jenis_katalog": "Vintage 60"
+          },
+          {
+            "id_katalog": 2,
+            "id_kategori": 2,
+            "jenis_katalog": "Vintage 70"
+          },
+          {
+            "id_katalog": 3,
+            "id_kategori": 3,
+            "jenis_katalog": "Vintage 80"
+          },
+          {
+            "id_katalog": 4,
+            "id_kategori": 4,
+            "jenis_katalog": "vintage 90"
+          }
+         ]
+        }
+ 
+ 
+## Kategori [/kategori]
 
-    + Body
+### Kategori [GET]
 
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
+ * Response 200 (application/json)
+
+           {
+                 [
+                  {
+                    "id_kategori": 1,
+                    "id_motor": 1,
+                    "jenis": "sport"
+                  },
+                  {
+                    "id_kategori": 2,
+                    "id_motor": 2,
+                    "jenis": "matic"
+                  },
+                  {
+                    "id_kategori": 3,
+                    "id_motor": 3,
+                    "jenis": "moge"
+                  },
+                  {
+                    "id_kategori": 4,
+                    "id_motor": 0,
+                    "jenis": "manual"
+                  }
                 ]
             }
+            
+## Detail [/detail]
+
+### Detail [GET]
+
+ * Response 200 (application/json)
+ 
+        {
+            [
+              {
+                "id_motor": 1,
+                "gambar": "www.motor.com/pictures/motor1.jpg",
+                "logo motor": "www.motor.com/logos/logo1.jpg",
+                "warna": "merah, kuning, hijau, biru, ungu, merah",
+                "features": "1. Headlamp projector\r\n2. Combi brake system\r\n3. ACG starter\r\n4. Super monocshock",
+                "spesifications": "1. 250cc\r\n2. Fuel injection\r\n3. Delta chrome",
+                "accessories": "1. Extent seat\r\n2. Firing custom\r\n3. upside down shock",
+                "service info": "3 tahun (2 tahun gratis oli dan 1 tahun gratis air radiatior)"
+              },
+              {
+                "id_motor": 2,
+                "gambar": "www.motor.com/pictures/motor2.jpg",
+                "logo motor": "www.motor.com/logos/logo2.jpg",
+                "warna": "hitam, putih, merah, hijau, kuning, abu muda, biru dongker",
+                "features": "1. Combi brake system\r\n2. Liquid control system\r\n3. Eco fuel system",
+                "spesifications": "1. 300cc\r\n2. Dualshock superior\r\n3. Double disk brake",
+                "accessories": "1. Exterior headlamp\r\n2. full body custom\r\n3. cross helmet",
+                "service info": "3 tahun full service"
+              },
+              {
+                "id_motor": 3,
+                "gambar": "www.motor.com/pictures/motor3.jpg",
+                "logo motor": "www.motor.com/logos/logo3.jpg",
+                "warna": "kuning, hitam, abu muda, merah, coklat muda",
+                "features": "1. Cooling system hyperx\r\n2. Triple disk brake\r\n3. 5 seconds idle off",
+                "spesifications": "1. 250cc\r\n2. double radiator\r\n3. super monoshock",
+                "accessories": "1. Delta box chassis\r\n2. Superior steer\r\n3. Body extended custom",
+                "service info": "4 tahun ( 1 tahun full service, 2 tahun oli, 3 tahun radiator coolant)"
+              }
+            ]
+        }
